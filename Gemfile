@@ -4,10 +4,13 @@ source 'http://ruby.taobao.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 
+gem 'bootstrap-sass'
+
 # Use sqlite3 as the database for Active Record
 group :development do
   gem 'sqlite3'
-  gem 'rspec-rails'
+  gem 'rspec-rails'#, '2.11.0'
+  gem 'guard-rspec'#, '1.2.1'
 end
 
 group :production do
@@ -38,7 +41,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -47,7 +50,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :test do
-  gem 'capybara'
+  gem 'capybara'#, '1.1.2'
+  gem 'rb-inotify'#, '0.8.8'
+  gem 'libnotify'#, '0.5.9'
+
+  gem 'minitest-reporters'
+  gem 'mini_backtrace'
+  gem 'guard-minitest'
 end
 
 group :development, :test do
