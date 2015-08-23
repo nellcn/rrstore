@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+
+  before_filter :signed_in_user, only: [:edit, :update]
+  before_filter :correct_user,   only: [:edit, :update]
+
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -11,6 +15,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @orders = @user.orders
   end
 
   # GET /users/new
@@ -39,6 +44,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+        sign_in @user
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -67,5 +73,10 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_path) unless current_user?(@user)
     end
 end

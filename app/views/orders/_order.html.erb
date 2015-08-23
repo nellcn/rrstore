@@ -1,0 +1,9 @@
+<li>
+  <span class="prod_id">Prod ID: <%= order.prod_id %>  </span>
+  <span class="prod_name">Product Name: TBD  </span>
+  <span class="prod_price">Product Price:  </span>
+  <span class="prod_count">Count: <%= order.prod_count %></span>
+  <% if current_user?(order.user) %>
+    <%= link_to "delete", order, method: :delete, data: { confirm: "You sure?" } %>
+  <% end %>
+</li>

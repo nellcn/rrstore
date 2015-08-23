@@ -65,7 +65,7 @@ p {
 
 #logo {
   float: left;
-  margin-right: 10px;
+/*  margin-right: 10px; */
   margin-bottom: 10px;
   font-size: 1.7em;
   color: #ffffff;
@@ -162,4 +162,29 @@ input, textarea, select, .uneditable-input {
 
 #btn a {
   color: #E0DA77;
+}
+
+
+/* Orders */
+
+.orders {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+.content {
+  display: block;
+}
+.timestamp {
+  color: #888;
+}
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
 }

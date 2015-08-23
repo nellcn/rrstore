@@ -1,3 +1,16 @@
+<% if signed_in? %>
+
+  <div class="center hero-unit">
+    <h1>Welcome to the RR Stationery Store!</h1>
+  </div>
+
+    <div class="span8">
+      <h3>Orders</h3>
+      <%= render 'shared/feed' %>
+    </div>
+
+<% else %>
+
 <div class="center hero-unit">
   <h1>Welcome to the RR Stationery Store!</h1>
   <h2>-- 2015 --</h2>
@@ -5,3 +18,4 @@
   <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
 </div>
 
+<% end %>
