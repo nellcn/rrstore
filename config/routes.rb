@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'store/index'
+
+  get 'store/show_product'
+
+  get 'store/show_order'
+
+  get 'store/show_cart'
+
+  get 'store/share'
+
   resources :orders
   resources :products
 
@@ -16,6 +26,7 @@ Rails.application.routes.draw do
   get '/home' => 'static_pages#home'
   get '/help' => 'static_pages#help'
   get '/about' => 'static_pages#about'
+  get 'static_pages/show_product' => 'static_pages#show_product'
 
   get '/signup' => 'users#new'
   get '/signin' => 'sessions#new'
@@ -23,12 +34,13 @@ Rails.application.routes.draw do
 
   get '/products' => 'products#index'
 
+##  get ':controller/:action' => ':controller#:action'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  #resources :products do
 
   # Example resource route with options:
   #   resources :products do

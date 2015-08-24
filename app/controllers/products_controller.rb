@@ -11,6 +11,9 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @product = Product.find(params[:id])
+    @user = current_user
+    @order = Order.new(order_id: 1, user_id: @user.id, invoice_id: 0, prod_id: @product.prod_id, prod_count: 1 )
   end
 
   # GET /products/new
@@ -61,6 +64,7 @@ class ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

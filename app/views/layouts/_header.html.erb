@@ -5,6 +5,7 @@
           <nav>
             <ul class="main-nav pull-right list-inline">
               <li><%= link_to "Home",    root_path %></li>
+              <li><%= link_to "Store",   'store/index'  %></li>
               <% if signed_in? %>
                 <li><%= link_to "Products",products_path %></li>
                 <li><%= link_to "My Orders", user_path(current_user) %></li>

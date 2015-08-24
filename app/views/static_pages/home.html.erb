@@ -4,6 +4,9 @@
     <h1>Welcome to the RR Stationery Store!</h1>
   </div>
 
+<!-- PRODUCTS LIST -->
+<%= render :partial => 'product', :collection => @products %>
+
     <div class="span8">
       <h3>Orders</h3>
       <%= render 'shared/feed' %>
